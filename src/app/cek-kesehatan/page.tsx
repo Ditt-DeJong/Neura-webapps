@@ -42,6 +42,7 @@ export default function CekKesehatan() {
           {/* Header */}
           <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
              <div className="lg:w-1/2">
+                {/* fixed: bg-linear-to-r (Tailwind v4) */}
                 <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-800 mb-8 leading-tight tracking-tight">
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FF6B8B] to-[#FF8E9E]">Pilah-pilih</span> Tes Kesehatan yang Pas Buat Kamu
                 </h1>
@@ -86,7 +87,8 @@ export default function CekKesehatan() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
              {tests.map((test, idx) => (
                 <div key={idx} className="bg-white p-10 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
-                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-8 \${test.color}`}>
+                   {/* fixed: removed backslash before $ in template literal */}
+                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-8 ${test.color}`}>
                       {test.icon}
                    </div>
                    <h3 className="text-2xl font-bold mb-4 text-gray-800">{test.title}</h3>

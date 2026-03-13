@@ -4,8 +4,8 @@ import { FaFire, FaSearch, FaUserNurse, FaSmile, FaFrown } from 'react-icons/fa'
 export default function Hero() {
   return (
     <section className="pt-10 pb-16 relative overflow-hidden bg-white">
-      {/* Background gradient */}
-      <div className="absolute top-0 inset-x-0 h-56 bg-gradient-to-b from-[#FFF0F3] to-white -z-10"></div>
+      {/* Background gradient - fixed: bg-linear-to-b (Tailwind v4) */}
+      <div className="absolute top-0 inset-x-0 h-56 bg-linear-to-b from-[#FFF0F3] to-white -z-10"></div>
 
       <div className="px-5 flex flex-col gap-10">
         {/* Hero Text */}
@@ -22,7 +22,8 @@ export default function Hero() {
           <h1 className="text-[1.75rem] font-black leading-[1.15] mb-4 tracking-tight text-gray-900">
             Sahabat Sehat <br />
             Untuk{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B8B] to-[#FF8E9E]">
+            {/* fixed: bg-linear-to-r (Tailwind v4) */}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FF6B8B] to-[#FF8E9E]">
               Prestasi
             </span>{' '}
             Gemilang
@@ -54,7 +55,7 @@ export default function Hero() {
               <span className="text-xl font-black text-gray-900">500+</span>
               <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Psikolog</span>
             </div>
-            <div className="w-px h-5 bg-gray-150 bg-gray-200"></div>
+            <div className="w-px h-5 bg-gray-200"></div>
             <div className="flex flex-col items-center gap-0.5">
               <span className="text-xl font-black text-gray-900">12k+</span>
               <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Siswa</span>
@@ -70,8 +71,8 @@ export default function Hero() {
         {/* Chat Card */}
         <div className="w-full">
           <div className="bg-white border border-gray-100 rounded-[2rem] shadow-xl overflow-hidden">
-            {/* Card Header */}
-            <div className="bg-gradient-to-br from-[#FFF0F3] to-white px-5 pt-5 pb-4 border-b border-gray-50">
+            {/* Card Header - fixed: bg-linear-to-br (Tailwind v4) */}
+            <div className="bg-linear-to-br from-[#FFF0F3] to-white px-5 pt-5 pb-4 border-b border-gray-50">
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-xl text-[#FF6B8B] shadow-sm border border-pink-50">
