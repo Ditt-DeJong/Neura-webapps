@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import Link from 'next/link';
 import { 
   FaCommentMedical, FaPills, FaHospital, FaSyringe, FaShieldAlt, 
   FaBrain, FaRunning, FaStar, FaBookMedical, FaWeight,
@@ -25,16 +26,16 @@ export default function Home() {
             
             <div className="grid grid-cols-4 gap-4">
               {[
-                { title: 'Chat', icon: <FaCommentMedical />, desc: 'Dokter' },
-                { title: 'Obat', icon: <FaPills />, desc: 'Toko' },
-                { title: 'Janji', icon: <FaHospital />, desc: 'Medis' },
-                { title: 'Lab', icon: <FaSyringe />, desc: 'PCR' },
-                { title: 'BPJS', icon: <FaShieldAlt />, desc: 'Asuransi' },
-                { title: 'Mental', icon: <FaBrain />, desc: 'Konselor' },
-                { title: 'Fit', icon: <FaRunning />, desc: 'Gizi' },
-                { title: 'Acne', icon: <FaStar />, desc: 'Kulit' }
+                { title: 'Chat', icon: <FaCommentMedical />, desc: 'Dokter', href: '/chat' },
+                { title: 'Obat', icon: <FaPills />, desc: 'Toko', href: '/toko' },
+                { title: 'Janji', icon: <FaHospital />, desc: 'Medis', href: '/janji' },
+                { title: 'Lab', icon: <FaSyringe />, desc: 'PCR', href: '/lab' },
+                { title: 'BPJS', icon: <FaShieldAlt />, desc: 'Asuransi', href: '/bpjs' },
+                { title: 'Mental', icon: <FaBrain />, desc: 'Konselor', href: '/chat?category=mental' },
+                { title: 'Fit', icon: <FaRunning />, desc: 'Gizi', href: '/chat?category=gizi' },
+                { title: 'Acne', icon: <FaStar />, desc: 'Kulit', href: '/perawatan' }
               ].map((cat, idx) => (
-                <div key={idx} className="group flex flex-col items-center gap-3 cursor-pointer">
+                <Link key={idx} href={cat.href} className="group flex flex-col items-center gap-3 cursor-pointer">
                   <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-2xl text-primary shadow-sm group-hover:shadow-primary-sm group-hover:-translate-y-1 transition-all duration-300">
                     {cat.icon}
                   </div>
@@ -42,7 +43,7 @@ export default function Home() {
                     <p className="text-[10px] font-black text-gray-800">{cat.title}</p>
                     <p className="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">{cat.desc}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -103,11 +104,11 @@ export default function Home() {
             
             <div className="space-y-5">
                {[
-                 { icon: <FaBookMedical />, title: 'Kamus Kesehatan', color: 'bg-rose-50 text-rose-500', desc: 'Gejala, obat & pencegahan' },
-                 { icon: <FaWeight />, title: 'Kalkulator BMI', color: 'bg-blue-50 text-blue-500', desc: 'Cek berat badan ideal' },
-                 { icon: <FaHeadSideVirus />, title: 'Tes Stres', color: 'bg-indigo-50 text-indigo-500', desc: 'Penilaian standar medis' }
+                 { icon: <FaBookMedical />, title: 'Kamus Kesehatan', color: 'bg-rose-50 text-rose-500', desc: 'Gejala, obat & pencegahan', href: '/kamus' },
+                 { icon: <FaWeight />, title: 'Kalkulator BMI', color: 'bg-blue-50 text-blue-500', desc: 'Cek berat badan ideal', href: '/cek-kesehatan' },
+                 { icon: <FaHeadSideVirus />, title: 'Tes Stres', color: 'bg-indigo-50 text-indigo-500', desc: 'Penilaian standar medis', href: '/cek-kesehatan' }
                ].map((tool, i) => (
-                 <div key={i} className="flex items-center gap-5 p-5 bg-white rounded-4xl border border-gray-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                 <Link href={tool.href} key={i} className="flex items-center gap-5 p-5 bg-white rounded-4xl border border-gray-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
                     <div className={`w-16 h-16 ${tool.color} rounded-2xl flex items-center justify-center text-3xl shadow-sm group-hover:scale-110 transition-transform`}>
                       {tool.icon}
                     </div>
@@ -118,7 +119,7 @@ export default function Home() {
                     <div className="text-gray-200">
                       <FaChevronRight className="text-xs" />
                     </div>
-                 </div>
+                 </Link>
                ))}
             </div>
           </div>
@@ -239,7 +240,7 @@ export default function Home() {
               </div>
            </div>
 
-           <div className="mt-24 pt-12 border-t border-gray-100/50 text-center">
+           <div className="mt-4 pt-12 border-t border-gray-100/50 text-center">
               <p className="text-[9px] text-gray-300 font-black uppercase tracking-[0.4em] leading-relaxed">
                 &copy; 2026 Neura Indonesia. <br/>Part of Education Health Companion.
               </p>

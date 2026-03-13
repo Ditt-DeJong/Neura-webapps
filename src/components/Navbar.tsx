@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { FaPlus } from 'react-icons/fa';
+import { FaPlus, FaBell } from 'react-icons/fa';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,16 +33,16 @@ export default function Navbar() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-3">
+          <button className="w-10 h-10 flex items-center justify-center bg-white/50 backdrop-blur-md text-gray-400 rounded-xl border border-gray-100/50 hover:border-primary/20 hover:text-primary transition-all relative">
+            <FaBell className="text-lg" />
+            <div className="absolute top-2.5 right-2.5 w-2 h-2 bg-primary rounded-full border-2 border-white"></div>
+          </button>
           <Link
             href="/login"
             className="px-5 py-2.5 bg-primary text-white rounded-xl shadow-primary-sm text-[11px] font-black uppercase tracking-widest hover:bg-primary-dark active:scale-95 transition-all whitespace-nowrap"
           >
             Masuk
           </Link>
-          <button className="w-10 h-10 flex flex-col items-center justify-center gap-[4px] bg-white text-gray-400 rounded-xl border border-gray-100 hover:border-primary/20 hover:text-primary transition-all">
-            <div className="w-4.5 h-0.5 bg-current rounded-full"></div>
-            <div className="w-3 h-0.5 bg-current rounded-full self-end mr-2.5"></div>
-          </button>
         </div>
       </div>
     </nav>
