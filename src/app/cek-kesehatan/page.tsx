@@ -1,107 +1,121 @@
 'use client';
 import Navbar from '@/components/Navbar';
-import { FaHeartbeat, FaBrain, FaRegChartBar, FaWeight, FaTint, FaArrowRight } from 'react-icons/fa';
+import { FaHeartbeat, FaBrain, FaRegChartBar, FaWeight, FaTint, FaArrowRight, FaChevronRight } from 'react-icons/fa';
 
 export default function CekKesehatan() {
   const tests = [
     {
-       title: "Skrining Gangguan Kesehatan Mental DASS-21",
-       desc: "Ukur tingkat Depresi, Kecemasan (Anxiety), dan Stres dengan tes yang divalidasi.",
+       title: "Skrining Mental DASS-21",
+       desc: "Ukur tingkat Depresi, Kecemasan, dan Stres secara medis.",
        users: "12,500+",
        icon: <FaBrain />,
-       color: "bg-purple-100 text-purple-600 border-purple-200",
+       color: "bg-purple-50 text-purple-500",
     },
     {
-        title: "Kalkulator Indeks Massa Tubuh (BMI)",
-        desc: "Ketahui berat badan idealmu dan cegah risiko obesitas di usia muda.",
+        title: "Kalkulator Indeks BMI",
+        desc: "Ketahui berat badan idealmu dan cegah risiko obesitas dini.",
         users: "8,200+",
         icon: <FaWeight />,
-        color: "bg-blue-100 text-blue-600 border-blue-200",
+        color: "bg-blue-50 text-blue-500",
      },
      {
-        title: "Pemantau Siklus Haid & Masa Subur",
+        title: "Pemantau Siklus Haid",
         desc: "Catat riwayat menstruasimu untuk memprediksi periode berikutnya.",
         users: "5,300+",
         icon: <FaTint />,
-        color: "bg-pink-100 text-[#FF6B8B] border-pink-200",
+        color: "bg-rose-50 text-primary",
      },
      {
-        title: "Tes Risiko Kebugaran Tubuh (FitTest)",
-        desc: "Apakah kamu terlalu banyak duduk saat mengerjakan tugas? Cek di sini.",
+        title: "Tes Risiko Kebugaran",
+        desc: "Apakah kamu terlalu banyak duduk saat mengerjakan tugas?",
         users: "3,100+",
         icon: <FaHeartbeat />,
-        color: "bg-orange-100 text-orange-600 border-orange-200",
+        color: "bg-orange-50 text-orange-500",
      }
   ];
 
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pb-20 pt-32 bg-[#FCFBFC]">
-        <div className="container mx-auto px-6 max-w-6xl">
+      <main className="min-h-screen pb-32 pt-32 bg-background-app">
+        <div className="px-8 max-w-[450px] mx-auto">
           {/* Header */}
-          <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
-             <div className="lg:w-1/2">
-                {/* fixed: bg-linear-to-r (Tailwind v4) */}
-                <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-800 mb-8 leading-tight tracking-tight">
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FF6B8B] to-[#FF8E9E]">Pilah-pilih</span> Tes Kesehatan yang Pas Buat Kamu
-                </h1>
-                <p className="text-gray-500 text-xl mb-10 leading-relaxed">
-                  Kenali kondisimu sejak dini. Hasil tes mandiri berbasis medis ini bisa jadi referensi awal sebelum kamu konsultasi langsung ke dokter atau psikolog Neura.
-                </p>
-                <div className="flex gap-6">
-                   <div className="bg-white px-8 py-5 rounded-[20px] shadow-sm border border-gray-100 text-center flex-1 transition-all hover:-translate-y-1">
-                      <div className="text-3xl font-extrabold text-[#FF6B8B] mb-1">4+</div>
-                      <div className="text-sm font-bold text-gray-500 uppercase tracking-widest">Jenis Tes</div>
-                   </div>
-                   <div className="bg-white px-8 py-5 rounded-[20px] shadow-sm border border-gray-100 text-center flex-1 transition-all hover:-translate-y-1">
-                      <div className="text-3xl font-extrabold text-[#FF6B8B] mb-1">30rb+</div>
-                      <div className="text-sm font-bold text-gray-500 uppercase tracking-widest">Pengguna</div>
-                   </div>
-                </div>
-             </div>
-             
-             <div className="lg:w-1/2 flex justify-center mt-12 lg:mt-0 relative">
-                <div className="absolute inset-0 bg-[#FF8E9E] rounded-full blur-[80px] opacity-20 animate-pulse w-72 h-72 m-auto"></div>
-                <div className="bg-white p-8 rounded-[32px] shadow-2xl border border-gray-100 relative z-10 hidden md:block w-96">
-                   <h3 className="font-bold flex items-center gap-3 mb-6 border-b pb-6 text-gray-800 text-lg">
-                     <FaRegChartBar className="text-[#FF6B8B] text-2xl"/> Riwayat Tes Terakhir
-                   </h3>
-                   <div className="space-y-6">
-                      <div className="flex items-center gap-4">
-                         <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-xl"><FaBrain /></div>
-                         <div>
-                            <h4 className="font-bold text-gray-800">DASS-21</h4>
-                            <p className="text-sm text-green-500 font-bold bg-green-50 px-2 py-1 rounded-md inline-block mt-1">Resiko Stres Rendah</p>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
+          <div className="flex flex-col gap-8 mb-16">
+            <div className="space-y-4">
+              <span className="text-[10px] text-primary font-black uppercase tracking-[0.4em]">Health Screening</span>
+              <h1 className="text-3xl font-black text-gray-900 leading-[1.15] tracking-tight">
+                Tes Kesehatan <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">Mandiri</span>
+              </h1>
+              <p className="text-gray-500 text-[13px] leading-relaxed font-medium">
+                Kenali kondisimu sejak dini. Hasil tes mandiri ini bisa jadi referensi awal sebelum kamu ke dokter.
+              </p>
+            </div>
+
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 gap-4">
+               <div className="bg-white p-6 rounded-3xl shadow-premium border border-gray-100/50 flex flex-col items-center text-center">
+                  <div className="text-2xl font-black text-primary mb-1">4+</div>
+                  <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Jenis Tes</div>
+               </div>
+               <div className="bg-white p-6 rounded-3xl shadow-premium border border-gray-100/50 flex flex-col items-center text-center">
+                  <div className="text-2xl font-black text-primary mb-1">30k+</div>
+                  <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Pengguna</div>
+               </div>
+            </div>
           </div>
 
-          <h2 className="text-3xl font-bold mb-10 text-gray-800 border-l-[6px] border-[#FF6B8B] pl-5 rounded-sm">
-            Daftar Skrining Aktif
-          </h2>
+          {/* Screening List */}
+          <div className="flex flex-col items-center mb-10 text-center">
+            <h2 className="text-xl font-black text-gray-900 tracking-tight">Daftar Skrining Aktif</h2>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
              {tests.map((test, idx) => (
-                <div key={idx} className="bg-white p-10 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
-                   {/* fixed: removed backslash before $ in template literal */}
-                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-8 ${test.color}`}>
-                      {test.icon}
+                <div key={idx} className="bg-white p-6 rounded-4xl shadow-premium border border-gray-100/50 hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col gap-6">
+                   <div className="flex items-center gap-5">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shrink-0 ${test.color} shadow-sm group-hover:scale-105 transition-transform`}>
+                         {test.icon}
+                      </div>
+                      <div className="flex-1">
+                         <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight">{test.title}</h3>
+                         <div className="flex items-center gap-1.5 grayscale opacity-70">
+                            <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">{test.users} Done</span>
+                         </div>
+                      </div>
+                      <div className="text-gray-200">
+                        <FaChevronRight className="text-xs" />
+                      </div>
                    </div>
-                   <h3 className="text-2xl font-bold mb-4 text-gray-800">{test.title}</h3>
-                   <p className="text-gray-500 mb-8 min-h-[60px] text-lg leading-relaxed">{test.desc}</p>
                    
-                   <div className="flex justify-between items-center pt-6 border-t border-gray-50">
-                      <span className="text-sm font-bold text-gray-400 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">{test.users} tes dilakukan</span>
-                      <button className="text-[#FF6B8B] font-bold flex items-center gap-2 group-hover:gap-4 transition-all hover:text-[#cc5670]">
-                         Mulai Tes <FaArrowRight />
+                   <p className="text-gray-500 text-[12px] leading-relaxed font-medium px-1">
+                      {test.desc}
+                   </p>
+                   
+                   <div className="pt-4 border-t border-gray-50">
+                      <button className="w-full py-4 bg-primary text-white rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-primary-sm group-hover:bg-primary-dark transition-all active:scale-[0.98]">
+                         Mulai Tes Sekarang
                       </button>
                    </div>
                 </div>
              ))}
+          </div>
+
+          {/* Bottom Card */}
+          <div className="mt-16 bg-[#0f172a] p-10 rounded-5xl text-center text-white relative overflow-hidden shadow-2xl group">
+             <div className="absolute inset-0 bg-primary/20 blur-[80px] opacity-20 z-0"></div>
+             <div className="relative z-10 flex flex-col items-center">
+                <div className="w-16 h-16 bg-white/10 rounded-3xl mb-8 flex items-center justify-center border border-white/20 backdrop-blur-3xl group-hover:scale-110 transition-transform">
+                   <FaRegChartBar className="text-3xl text-primary" />
+                </div>
+                <h3 className="text-xl font-black mb-4">Riwayat Tes Kamu</h3>
+                <p className="text-[11px] text-gray-400 leading-relaxed font-bold uppercase tracking-widest mb-8">
+                   Belum ada data riwayat tes. Mulai tes pertamamu sekarang!
+                </p>
+                <div className="w-full pt-8 border-t border-white/10">
+                   <span className="text-[10px] text-primary-light font-black uppercase tracking-[0.4em]">Privacy Secured</span>
+                </div>
+             </div>
           </div>
         </div>
       </main>

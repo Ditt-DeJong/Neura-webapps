@@ -14,8 +14,6 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body>
-        <div className="bg-blob primary"></div>
-        <div className="bg-blob secondary"></div>
         <div id="app-shell">
           {children}
         </div>
