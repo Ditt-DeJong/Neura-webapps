@@ -222,7 +222,7 @@ export default function Home() {
               </div>
               
               {/* Links Grid */}
-              <div className="grid grid-cols-2 gap-12 pt-4">
+              <div className="grid grid-cols-2 gap-12 pt-">
                  <div className="space-y-6">
                     <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Bantuan</h4>
                     <ul className="text-[12px] space-y-4 text-gray-600 font-bold uppercase tracking-tight">
@@ -242,7 +242,7 @@ export default function Home() {
               </div>
            </div>
 
-           <div className="mt-4 pt-12 border-t border-gray-100/50 text-center">
+           <div className="mt-6 pt-8 border-t border-gray-100/50 text-center">
               <p className="text-[9px] text-gray-300 font-black uppercase tracking-[0.4em] leading-relaxed">
                 &copy; 2026 Neura Indonesia. <br/>Part of Education Health Companion.
               </p>

@@ -1,9 +1,11 @@
 'use client';
 import Navbar from '@/components/Navbar';
-import { FaSearch, FaShoppingBasket, FaPlus, FaFilter, FaChevronRight, FaStar, FaFilePrescription, FaCapsules, FaHeadSideMask, FaBandAid, FaThermometerHalf, FaTablets, FaPills, FaLeaf } from 'react-icons/fa';
-import Link from 'next/link';
+import { FaSearch, FaShoppingBasket, FaPlus, FaFilter, FaStar, FaFilePrescription, FaCapsules, FaHeadSideMask, FaBandAid, FaThermometerHalf, FaTablets, FaPills, FaLeaf } from 'react-icons/fa';
+import { useState } from 'react';
 
 export default function TokoObat() {
+  const [searchQuery, setSearchQuery] = useState('');
+  
   const categories = [
     { name: "Resep", icon: <FaFilePrescription /> },
     { name: "Vitamin", icon: <FaCapsules /> },
@@ -14,10 +16,21 @@ export default function TokoObat() {
 
   const products = [
     { name: "Vitamin C 500mg", price: "25.000", rating: "4.9", category: "Vitamin", icon: <FaCapsules /> },
-    { name: "Paracetamol 500mg", price: "12.000", rating: "4.8", category: "Obat Luar", icon: <FaTablets /> },
+    { name: "Paracetamol 500mg", price: "12.000", rating: "4.8", category: "Demam", icon: <FaTablets /> },
     { name: "Masker Medical 3-Ply", price: "45.000", rating: "5.0", category: "Proteksi", icon: <FaHeadSideMask /> },
     { name: "Minyak Kayu Putih", price: "18.500", rating: "4.7", category: "P3K", icon: <FaLeaf /> },
+    { name: "Sanmol Forte Syrup", price: "32.000", rating: "4.9", category: "Demam", icon: <FaThermometerHalf /> },
+    { name: "Neurobion Forte", price: "55.000", rating: "4.8", category: "Vitamin", icon: <FaPills /> },
+    { name: "Betadine 30ml", price: "22.500", rating: "4.7", category: "P3K", icon: <FaFilePrescription /> },
+    { name: "Hansaplast Kain 10s", price: "8.000", rating: "4.9", category: "P3K", icon: <FaBandAid /> },
+    { name: "Enervon-C Multivitamin", price: "38.500", rating: "5.0", category: "Vitamin", icon: <FaCapsules /> },
+    { name: "Panadol Biru 10s", price: "13.500", rating: "4.8", category: "Demam", icon: <FaTablets /> }
   ];
+
+  const filteredProducts = products.filter(product => 
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    product.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
@@ -38,6 +51,8 @@ export default function TokoObat() {
               <input 
                 type="text" 
                 placeholder="Cari obat, vitamin, atau alat kesehatan..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-white border border-gray-100 rounded-3xl py-5 pl-14 pr-6 text-[12px] font-medium focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all shadow-premium"
               />
             </div>
@@ -66,11 +81,11 @@ export default function TokoObat() {
             </div>
             <div className="grid grid-cols-5 gap-4">
               {categories.map((cat, i) => (
-                <div key={i} className="flex flex-col items-center gap-3 cursor-pointer group">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-xl shadow-premium border border-gray-50 group-hover:-translate-y-1 transition-all">
+                <div key={i} className="flex flex-col items-center gap-3 cursor-pointer group" onClick={() => setSearchQuery(cat.name)}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-xl shadow-premium border border-gray-50 group-hover:-translate-y-1 transition-all ${searchQuery === cat.name ? 'bg-primary text-white' : 'bg-white text-gray-400'}`}>
                     {cat.icon}
                   </div>
-                  <span className="text-[9px] font-black text-gray-400 uppercase tracking-tighter group-hover:text-primary">{cat.name}</span>
+                  <span className={`text-[9px] font-black uppercase tracking-tighter transition-colors ${searchQuery === cat.name ? 'text-primary' : 'text-gray-400'}`}>{cat.name}</span>
                 </div>
               ))}
             </div>
@@ -79,37 +94,47 @@ export default function TokoObat() {
           {/* Product Feed */}
           <div className="space-y-6">
             <div className="flex justify-between items-center px-2">
-              <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">Rekomendasi Untukmu</h2>
-              <button className="text-[10px] font-black text-primary uppercase tracking-widest">Lihat Semua</button>
+              <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">
+                {searchQuery ? `Hasil untuk "${searchQuery}"` : 'Rekomendasi Untukmu'}
+              </h2>
+              {searchQuery && (
+                <button onClick={() => setSearchQuery('')} className="text-[10px] font-black text-primary uppercase tracking-widest">Reset</button>
+              )}
             </div>
             
-            <div className="grid grid-cols-2 gap-5">
-              {products.map((item, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-4xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer relative">
-                  <div className="h-32 bg-secondary/30 rounded-3xl mb-5 flex items-center justify-center text-5xl text-primary group-hover:scale-105 transition-transform duration-500">
-                    {item.icon}
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-[9px] text-primary font-black uppercase tracking-widest">{item.category}</p>
-                    <h3 className="text-[13px] font-black text-gray-900 leading-tight truncate">{item.name}</h3>
-                    <div className="flex items-center gap-1 text-[10px] text-orange-400 font-black mb-2">
-                      <FaStar className="text-[8px]" /> {item.rating}
+            {filteredProducts.length > 0 ? (
+              <div className="grid grid-cols-2 gap-5">
+                {filteredProducts.map((item, idx) => (
+                  <div key={idx} className="bg-white p-5 rounded-4xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer relative">
+                    <div className="h-32 bg-secondary/30 rounded-3xl mb-5 flex items-center justify-center text-5xl text-primary group-hover:scale-105 transition-transform duration-500">
+                      {item.icon}
                     </div>
-                    <div className="flex justify-between items-center pt-2">
-                      <p className="text-[12px] font-black text-gray-900">Rp {item.price}</p>
-                      <button className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-xs hover:bg-primary transition-colors shadow-lg">
-                        <FaPlus />
-                      </button>
+                    <div className="space-y-1">
+                      <p className="text-[9px] text-primary font-black uppercase tracking-widest">{item.category}</p>
+                      <h3 className="text-[13px] font-black text-gray-900 leading-tight truncate">{item.name}</h3>
+                      <div className="flex items-center gap-1 text-[10px] text-orange-400 font-black mb-2">
+                        <FaStar className="text-[8px]" /> {item.rating}
+                      </div>
+                      <div className="flex justify-between items-center pt-2">
+                        <p className="text-[12px] font-black text-gray-900">Rp {item.price}</p>
+                        <button className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-xs hover:bg-primary transition-colors shadow-lg">
+                          <FaPlus />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="py-20 text-center">
+                <p className="text-gray-400 text-[12px] font-bold uppercase tracking-widest">Produk tidak ditemukan</p>
+              </div>
+            )}
           </div>
         </div>
       </main>
       
-      {/* Floating Cart */}
+      {/* Floating Cart (Static for UI) */}
       <div className="fixed bottom-32 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
         <button className="pointer-events-auto bg-gray-900 text-white flex items-center gap-4 px-8 py-5 rounded-3xl shadow-2xl animate-bounce-subtle">
            <FaShoppingBasket className="text-xl" />

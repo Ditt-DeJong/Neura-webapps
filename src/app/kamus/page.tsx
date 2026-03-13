@@ -1,15 +1,25 @@
 'use client';
 import Navbar from '@/components/Navbar';
-import { FaSearch, FaBookMedical, FaChevronRight, FaStethoscope, FaFilter, FaArrowLeft } from 'react-icons/fa';
+import { FaSearch, FaBookMedical, FaChevronRight, FaStethoscope, FaFilter } from 'react-icons/fa';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function KamusKesehatan() {
+  const [searchQuery, setSearchQuery] = useState('');
+  
   const dictionaryTopics = [
-    { title: "Mental Health", desc: "Depresi, Anxiety, Burnout", icon: <FaStethoscope />, color: "bg-blue-50 text-blue-500" },
-    { title: "Kulit & Estetika", desc: "Jerawat, Alergi, Ruam", icon: <FaStethoscope />, color: "bg-rose-50 text-primary" },
-    { title: "Pencernaan", desc: "Maag, GERD, Diare", icon: <FaStethoscope />, color: "bg-emerald-50 text-emerald-500" },
-    { title: "Virus & Bakteri", desc: "Flu, Tipes, Demam", icon: <FaStethoscope />, color: "bg-indigo-50 text-indigo-500" },
+    { title: "Mental Health", desc: "Depresi, Anxiety, Burnout, Bipolar, Skizofrenia", icon: <FaStethoscope />, color: "bg-blue-50 text-blue-500" },
+    { title: "Kulit & Estetika", desc: "Jerawat, Alergi, Ruam, Dermatitis, Jamur", icon: <FaStethoscope />, color: "bg-rose-50 text-primary" },
+    { title: "Pencernaan", desc: "Maag, GERD, Diare, Sembelit, Tipus", icon: <FaStethoscope />, color: "bg-emerald-50 text-emerald-500" },
+    { title: "Virus & Bakteri", desc: "Flu, Tipes, Demam, COVID-19, DBD", icon: <FaStethoscope />, color: "bg-indigo-50 text-indigo-500" },
+    { title: "Saraf & Otot", desc: "Migrain, Sakit Kepala, Kram, Kebas", icon: <FaStethoscope />, color: "bg-orange-50 text-orange-500" },
+    { title: "Pernapasan", desc: "Asma, Batuk, Sesak Napas, ISPA", icon: <FaStethoscope />, color: "bg-cyan-50 text-cyan-500" },
   ];
+
+  const filteredTopics = dictionaryTopics.filter(topic => 
+    topic.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    topic.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -32,69 +42,86 @@ export default function KamusKesehatan() {
               <input 
                 type="text" 
                 placeholder="Cari penyakit atau gejala..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-white border border-gray-100 rounded-3xl py-5 pl-14 pr-6 text-[12px] font-medium focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all shadow-premium"
               />
             </div>
           </div>
 
           {/* Quick Stats/Banner */}
-          <div className="mb-12 bg-gray-900 p-8 rounded-5xl text-white relative overflow-hidden shadow-2xl group">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
-             <div className="flex items-center gap-6 mb-6">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-2xl text-primary border border-white/10 backdrop-blur-xl">
-                   <FaBookMedical />
-                </div>
-                <div>
-                   <h3 className="text-[16px] font-black tracking-tight leading-tight">1,000+ Artikel Medis</h3>
-                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Diverifikasi Dokter</p>
-                </div>
-             </div>
-             <p className="text-[11px] text-gray-400 leading-relaxed font-medium">
-                Cari tahu penyebab, gejala, hingga cara penanganan pertama secara medis untuk berbagai keluhan kesehatan mahasiswa.
-             </p>
-          </div>
+          {!searchQuery && (
+            <div className="mb-12 bg-gray-900 p-8 rounded-5xl text-white relative overflow-hidden shadow-2xl group">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
+               <div className="flex items-center gap-6 mb-6">
+                  <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-2xl text-primary border border-white/10 backdrop-blur-xl">
+                     <FaBookMedical />
+                  </div>
+                  <div>
+                     <h3 className="text-[16px] font-black tracking-tight leading-tight">1,000+ Artikel Medis</h3>
+                     <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Diverifikasi Dokter</p>
+                  </div>
+               </div>
+               <p className="text-[11px] text-gray-400 leading-relaxed font-medium">
+                  Cari tahu penyebab, gejala, hingga cara penanganan pertama secara medis untuk berbagai keluhan kesehatan mahasiswa.
+               </p>
+            </div>
+          )}
 
           {/* A-Z Browse Scroll */}
-          <div className="mb-12">
-            <div className="flex justify-between items-center mb-6 px-2">
-              <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">Cari Berdasarkan Abjad</h2>
-              <FaFilter className="text-gray-300 text-xs" />
+          {!searchQuery && (
+            <div className="mb-12">
+              <div className="flex justify-between items-center mb-6 px-2">
+                <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">Cari Berdasarkan Abjad</h2>
+                <FaFilter className="text-gray-300 text-xs" />
+              </div>
+              <div className="flex gap-3 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-8 px-8">
+                {alphabets.map((char) => (
+                  <button 
+                    key={char}
+                    onClick={() => setSearchQuery(char)}
+                    className="w-12 h-12 shrink-0 bg-white border border-gray-100 rounded-2xl flex items-center justify-center text-[14px] font-black text-gray-400 hover:border-primary hover:text-primary hover:shadow-premium transition-all active:scale-95"
+                  >
+                    {char}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex gap-3 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-8 px-8">
-              {alphabets.map((char) => (
-                <button 
-                  key={char}
-                  className="w-12 h-12 shrink-0 bg-white border border-gray-100 rounded-2xl flex items-center justify-center text-[14px] font-black text-gray-400 hover:border-primary hover:text-primary hover:shadow-premium transition-all active:scale-95"
-                >
-                  {char}
-                </button>
-              ))}
-            </div>
-          </div>
+          )}
 
           {/* Categories/Topics */}
           <div className="space-y-5">
             <div className="flex justify-between items-center px-2">
-              <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">Topik Populer</h2>
-              <button className="text-[10px] font-black text-primary uppercase tracking-widest">Lihat Semua</button>
+              <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">
+                {searchQuery ? `Hasil untuk "${searchQuery}"` : 'Topik Populer'}
+              </h2>
+              {searchQuery && (
+                <button onClick={() => setSearchQuery('')} className="text-[10px] font-black text-primary uppercase tracking-widest">Reset</button>
+              )}
             </div>
             
-            {dictionaryTopics.map((topic, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-                <div className="flex items-center gap-5">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shrink-0 ${topic.color} shadow-sm group-hover:scale-105 transition-transform`}>
-                    {topic.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight group-hover:text-primary transition-colors">{topic.title}</h3>
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-none truncate">{topic.desc}</p>
-                  </div>
-                  <div className="text-gray-200">
-                    <FaChevronRight className="text-xs" />
+            {filteredTopics.length > 0 ? (
+              filteredTopics.map((topic, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                  <div className="flex items-center gap-5">
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shrink-0 ${topic.color} shadow-sm group-hover:scale-105 transition-transform`}>
+                      {topic.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight group-hover:text-primary transition-colors">{topic.title}</h3>
+                      <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-none truncate">{topic.desc}</p>
+                    </div>
+                    <div className="text-gray-200">
+                      <FaChevronRight className="text-xs" />
+                    </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="py-20 text-center">
+                <p className="text-gray-400 text-[12px] font-bold uppercase tracking-widest">Istilah tidak ditemukan</p>
               </div>
-            ))}
+            )}
           </div>
 
           {/* Help Center CTA */}
