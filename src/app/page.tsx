@@ -31,8 +31,8 @@ export default function Home() {
                 { title: 'Janji', icon: <FaHospital />, desc: 'Medis', href: '/janji' },
                 { title: 'Lab', icon: <FaSyringe />, desc: 'PCR', href: '/lab' },
                 { title: 'BPJS', icon: <FaShieldAlt />, desc: 'Asuransi', href: '/bpjs' },
-                { title: 'Mental', icon: <FaBrain />, desc: 'Konselor', href: '/chat?category=mental' },
-                { title: 'Fit', icon: <FaRunning />, desc: 'Gizi', href: '/chat?category=gizi' },
+                { title: 'Mental', icon: <FaBrain />, desc: 'Konselor', href: '/mental' },
+                { title: 'Fit', icon: <FaRunning />, desc: 'Gizi', href: '/gizi' },
                 { title: 'Acne', icon: <FaStar />, desc: 'Kulit', href: '/perawatan' }
               ].map((cat, idx) => (
                 <Link key={idx} href={cat.href} className="group flex flex-col items-center gap-3 cursor-pointer">
@@ -69,15 +69,17 @@ export default function Home() {
                   badge: 'OFF 50%', 
                   time: 'Sisa 12 Jam Lagi',
                   gradient: 'bg-linear-to-br from-primary to-[#ff5177]',
+                  href: '/promo/vitamin-fokus'
                 },
                 { 
                   title: 'Gratis Ongkir ke Asrama', 
                   badge: 'FREE DELIVERY', 
                   time: 'Tanpa Min. Belanja',
                   gradient: 'bg-linear-to-br from-blue-600 to-blue-400',
+                  href: '/promo/gratis-ongkir'
                 }
               ].map((promo, i) => (
-                <div key={i} className={`${promo.gradient} p-8 rounded-5xl text-white relative overflow-hidden shadow-premium group cursor-pointer`}>
+                <Link key={i} href={promo.href} className={`${promo.gradient} block p-8 rounded-5xl text-white relative overflow-hidden shadow-premium group cursor-pointer`}>
                    <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full group-hover:scale-125 transition-transform duration-700"></div>
                    <div className="relative z-10 space-y-6">
                       <span className="inline-block bg-white/20 backdrop-blur-md text-white px-3 py-1.5 rounded-xl text-[8px] font-black tracking-widest uppercase border border-white/20">
@@ -88,7 +90,7 @@ export default function Home() {
                         <p className="text-[10px] text-white/70 font-bold uppercase tracking-widest">{promo.time}</p>
                       </div>
                    </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -138,11 +140,11 @@ export default function Home() {
             
             <div className="flex gap-6 overflow-x-auto pb-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                {[
-                 { title: "Burnout Akademik: Ciri & Solusi", tag: "Mental" },
-                 { title: "Kopi vs Begadang Skripsi", tag: "Life" },
-                 { title: "Diet Nutrisi Mahasiswa Kos", tag: "Nutrition" }
+                 { title: "Burnout Akademik: Ciri & Solusi", tag: "Mental", slug: "burnout-akademik-ciri-dan-solusi" },
+                 { title: "Kopi vs Begadang Skripsi", tag: "Life", slug: "kopi-vs-begadang-skripsi" },
+                 { title: "Diet Nutrisi Mahasiswa Kos", tag: "Nutrition", slug: "diet-nutrisi-mahasiswa-kos" }
                ].map((art, idx) => (
-                 <div key={idx} className="min-w-[260px] bg-white rounded-5xl overflow-hidden shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100/50 group cursor-pointer">
+                 <Link key={idx} href={`/artikel/${art.slug}`} className="min-w-[260px] bg-white rounded-5xl overflow-hidden shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100/50 group cursor-pointer">
                     <div className="h-40 bg-secondary flex items-center justify-center text-6xl text-primary opacity-40 group-hover:scale-105 transition-transform duration-700">
                         <FaBookMedical />
                     </div>
@@ -156,7 +158,7 @@ export default function Home() {
                            </div>
                         </div>
                     </div>
-                 </div>
+                 </Link>
                ))}
             </div>
           </div>

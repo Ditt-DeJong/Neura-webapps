@@ -39,64 +39,71 @@ export default function CekKesehatan() {
       <Navbar />
       <main className="min-h-screen pb-32 pt-32 bg-background-app">
         <div className="px-8 max-w-[450px] mx-auto">
-          {/* Header */}
-          <div className="flex flex-col gap-8 mb-16">
-            <div className="space-y-4">
-              <span className="text-[10px] text-primary font-black uppercase tracking-[0.4em]">Health Screening</span>
-              <h1 className="text-3xl font-black text-gray-900 leading-[1.15] tracking-tight">
-                Tes Kesehatan <br />
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">Mandiri</span>
-              </h1>
-              <p className="text-gray-500 text-[13px] leading-relaxed font-medium">
-                Kenali kondisimu sejak dini. Hasil tes mandiri ini bisa jadi referensi awal sebelum kamu ke dokter.
-              </p>
-            </div>
-
-            {/* Stats Row */}
-            <div className="grid grid-cols-2 gap-4">
-               <div className="bg-white p-6 rounded-3xl shadow-premium border border-gray-100/50 flex flex-col items-center text-center">
-                  <div className="text-2xl font-black text-primary mb-1">4+</div>
-                  <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Jenis Tes</div>
-               </div>
-               <div className="bg-white p-6 rounded-3xl shadow-premium border border-gray-100/50 flex flex-col items-center text-center">
-                  <div className="text-2xl font-black text-primary mb-1">30k+</div>
-                  <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Pengguna</div>
-               </div>
-            </div>
+          {/* Header Section */}
+          <div className="mb-10">
+            <span className="text-[10px] text-primary font-black uppercase tracking-[0.4em] mb-3 block">Self Screening</span>
+            <h1 className="text-3xl font-black text-gray-900 tracking-tight leading-tight mb-4">
+              Tes Kesehatan <br /><span className="text-primary">Mandiri</span>
+            </h1>
+            <p className="text-gray-500 text-[13px] font-medium leading-relaxed">
+              Kenali kondisimu sejak dini. Hasil tes mandiri ini dikembangkan bersama para ahli medis terpercaya.
+            </p>
           </div>
 
-          {/* Screening List */}
-          <div className="flex flex-col items-center mb-10 text-center">
-            <h2 className="text-xl font-black text-gray-900 tracking-tight">Daftar Skrining Aktif</h2>
+          {/* Featured Screening / Banner */}
+          <div className="mb-12 bg-gray-900 p-10 rounded-6xl text-white relative overflow-hidden shadow-2xl group">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
+             <div className="flex items-center gap-6 mb-10">
+                <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-3xl text-primary border border-white/10 backdrop-blur-3xl group-hover:rotate-12 transition-transform">
+                   <FaBrain />
+                </div>
+                <div>
+                   <h3 className="text-[18px] font-black tracking-tight leading-tight">Tes DASS-21</h3>
+                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Mental Health Check</p>
+                </div>
+             </div>
+             <p className="text-[11px] text-gray-400 leading-relaxed font-medium mb-10">
+                Ukur tingkat depresi, kecemasan, dan stres akademikmu dengan instrumen medis standar internasional.
+             </p>
+             <button className="w-full py-5 bg-primary text-white rounded-2xl font-black text-[11px] uppercase tracking-widest hover:opacity-90 transition-all shadow-primary-sm active:scale-95">
+                Mulai Tes Mental Sekarang
+             </button>
           </div>
-          
+
+          {/* Stats Bar */}
+          <div className="grid grid-cols-2 gap-4 mb-16">
+             <div className="bg-white p-6 rounded-4xl shadow-premium border border-gray-100/50 flex flex-col items-center text-center">
+                <div className="text-2xl font-black text-gray-900 mb-1">12K+</div>
+                <div className="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em]">Siswa Terbantu</div>
+             </div>
+             <div className="bg-white p-6 rounded-4xl shadow-premium border border-gray-100/50 flex flex-col items-center text-center">
+                <div className="text-2xl font-black text-gray-900 mb-1">100%</div>
+                <div className="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em]">Privasi Aman</div>
+             </div>
+          </div>
+
+          {/* List of Tools */}
           <div className="space-y-6">
+             <div className="flex justify-between items-center px-2">
+                <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest">Daftar Skrining Lainnya</h2>
+                <FaRegChartBar className="text-gray-300 text-sm" />
+             </div>
+             
              {tests.map((test, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-4xl shadow-premium border border-gray-100/50 hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col gap-6">
-                   <div className="flex items-center gap-5">
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shrink-0 ${test.color} shadow-sm group-hover:scale-105 transition-transform`}>
+                <div key={idx} className="bg-white p-6 rounded-5xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                   <div className="flex items-center gap-6 mb-6">
+                      <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-3xl shrink-0 ${test.color} shadow-sm group-hover:scale-105 transition-transform`}>
                          {test.icon}
                       </div>
                       <div className="flex-1">
-                         <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight">{test.title}</h3>
-                         <div className="flex items-center gap-1.5 grayscale opacity-70">
-                            <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">{test.users} Done</span>
-                         </div>
+                         <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight group-hover:text-primary transition-colors">{test.title}</h3>
+                         <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">{test.users} Pengguna</span>
                       </div>
-                      <div className="text-gray-200">
-                        <FaChevronRight className="text-xs" />
-                      </div>
+                      <FaChevronRight className="text-xs text-gray-200" />
                    </div>
-                   
-                   <p className="text-gray-500 text-[12px] leading-relaxed font-medium px-1">
+                   <p className="text-[12px] text-gray-500 font-medium leading-relaxed px-1">
                       {test.desc}
                    </p>
-                   
-                   <div className="pt-4 border-t border-gray-50">
-                      <button className="w-full py-4 bg-primary text-white rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-primary-sm group-hover:bg-primary-dark transition-all active:scale-[0.98]">
-                         Mulai Tes Sekarang
-                      </button>
-                   </div>
                 </div>
              ))}
           </div>

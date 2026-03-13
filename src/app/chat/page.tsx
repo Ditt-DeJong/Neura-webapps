@@ -1,6 +1,8 @@
 'use client';
 import { FaSearch, FaUserMd, FaChevronRight, FaStar, FaCircle } from 'react-icons/fa';
 
+import Navbar from '@/components/Navbar';
+
 export default function ChatPage() {
   const doctors = [
     { name: "dr. Sarah Wilson", spec: "Psikolog Klinis", price: "50.000", rating: "4.9", online: true },
@@ -10,7 +12,9 @@ export default function ChatPage() {
   ];
 
   return (
-    <main className="min-h-screen pb-32 pt-40 bg-gray-50/50">
+    <>
+      <Navbar />
+      <main className="min-h-screen pb-32 pt-40 bg-gray-50/50">
       <div className="px-6 max-w-[450px] mx-auto">
         {/* Header Section */}
         <div className="mb-10">
@@ -101,7 +105,8 @@ export default function ChatPage() {
             </button>
           </div>
         </div>
-      </div>
-    </main>
+        </div>
+      </main>
+    </>
   );
 }
