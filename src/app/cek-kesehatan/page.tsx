@@ -2,6 +2,7 @@
 import Navbar from '@/components/Navbar';
 import { FaHeartbeat, FaBrain, FaRegChartBar, FaWeight, FaTint, FaChevronRight, FaSearch } from 'react-icons/fa';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function CekKesehatan() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -116,8 +117,8 @@ export default function CekKesehatan() {
              </div>
              
              {filteredTests.length > 0 ? (
-               filteredTests.map((test, idx) => (
-                  <div key={idx} className="bg-white p-6 rounded-5xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                filteredTests.map((test, idx) => (
+                  <Link key={idx} href={`/cek-kesehatan/dass-21`} className="bg-white p-6 rounded-5xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer block">
                      <div className="flex items-center gap-6 mb-6">
                         <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-3xl shrink-0 ${test.color} shadow-sm group-hover:scale-105 transition-transform`}>
                            {test.icon}
@@ -131,7 +132,7 @@ export default function CekKesehatan() {
                      <p className="text-[12px] text-gray-500 font-medium leading-relaxed px-1">
                         {test.desc}
                      </p>
-                  </div>
+                  </Link>
                ))
              ) : (
                 <div className="py-20 text-center">

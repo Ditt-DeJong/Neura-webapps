@@ -16,6 +16,12 @@ export default function BottomNav() {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
 
+  // Daftar path yang tidak membutuhkan BottomNav
+  const hideOnPaths = ['/chat/room', '/janji/booking', '/lab/booking'];
+  const shouldHide = hideOnPaths.some(p => pathname.startsWith(p));
+
+  if (shouldHide) return null;
+
   return (
     <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[450px] z-50 px-6 pb-6 pointer-events-none">
       {/* Toggle Button when Hidden */}

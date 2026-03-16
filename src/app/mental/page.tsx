@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import { FaBrain, FaHeart, FaMoon, FaLeaf, FaChevronRight, FaPlay, FaCommentDots, FaRegSadTear, FaRegMeh, FaRegSmile, FaRegGrinBeam, FaRegGrinStars } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function MentalHealth() {
   const meditation = [
@@ -76,7 +77,7 @@ export default function MentalHealth() {
              </div>
              
              {meditation.map((item, idx) => (
-               <div key={idx} className="bg-white p-5 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer hover:shadow-2xl transition-all">
+               <Link key={idx} href={`/mental/audio-${idx}`} className="bg-white p-5 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer hover:shadow-2xl transition-all block">
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-xl shrink-0 ${item.color} group-hover:scale-105 transition-transform`}>
                      {item.icon}
                   </div>
@@ -87,7 +88,7 @@ export default function MentalHealth() {
                   <div className="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center text-xs group-hover:bg-primary transition-colors">
                      <FaPlay className="ml-0.5" />
                   </div>
-               </div>
+               </Link>
              ))}
           </div>
 

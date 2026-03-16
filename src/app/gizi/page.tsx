@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import { FaAppleAlt, FaUtensils, FaWeight, FaChartLine, FaChevronRight, FaPlus, FaCheckCircle } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function GiziDiet() {
   const mealPlans = [
@@ -83,7 +84,7 @@ export default function GiziDiet() {
              </div>
              
              {mealPlans.map((item, idx) => (
-               <div key={idx} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer relative overflow-hidden">
+               <Link key={idx} href={`/gizi/sarapan-fokus`} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer relative overflow-hidden block">
                   <div className="absolute top-0 right-0 p-3">
                      <FaCheckCircle className="text-gray-100 text-lg group-hover:text-green-500 transition-colors" />
                   </div>
@@ -96,7 +97,7 @@ export default function GiziDiet() {
                      <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{item.cal}</p>
                   </div>
                   <FaChevronRight className="text-xs text-gray-200" />
-               </div>
+               </Link>
              ))}
           </div>
 

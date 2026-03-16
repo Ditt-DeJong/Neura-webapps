@@ -102,7 +102,7 @@ export default function KamusKesehatan() {
             
             {filteredTopics.length > 0 ? (
               filteredTopics.map((topic, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                <Link key={idx} href={`/kamus/${topic.title.toLowerCase().replace(/\s+/g, '-')}`} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer block">
                   <div className="flex items-center gap-5">
                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shrink-0 ${topic.color} shadow-sm group-hover:scale-105 transition-transform`}>
                       {topic.icon}
@@ -115,7 +115,7 @@ export default function KamusKesehatan() {
                       <FaChevronRight className="text-xs" />
                     </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <div className="py-20 text-center">
