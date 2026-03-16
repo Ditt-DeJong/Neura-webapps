@@ -101,7 +101,9 @@ export default function JanjiMedis() {
                 </div>
                 <p className="text-[11px] text-white/40 font-medium leading-relaxed mb-6">Butuh ambulans atau bantuan medis segera ke RS terdekat?</p>
                 <div className="flex gap-4">
-                   <button className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all">Panggil Ambulans</button>
+                   <Link href="/ambulans" className="flex-1">
+                      <button className="w-full bg-red-600 hover:bg-red-700 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all">Panggil Ambulans</button>
+                   </Link>
                    <button className="flex-1 bg-white/5 border border-white/10 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all">Cek RS SIaga</button>
                 </div>
              </div>

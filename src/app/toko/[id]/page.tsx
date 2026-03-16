@@ -3,6 +3,7 @@ import { FaChevronLeft, FaStar, FaShoppingBasket, FaPlus, FaMinus, FaInfoCircle,
 import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 
 export default function ProductDetail() {
   const params = useParams();
@@ -145,16 +146,19 @@ export default function ProductDetail() {
         </div>
 
         {/* Floating Action Bar */}
-        <div className="fixed bottom-10 left-6 right-6 z-50">
-           <div className="max-w-[400px] mx-auto bg-gray-900 text-white p-4 rounded-4xl shadow-2xl flex items-center gap-3 border border-white/10 ring-1 ring-white/10 backdrop-blur-2xl">
-              <button className="w-12 h-12 bg-white/10 border border-white/10 rounded-2xl flex items-center justify-center text-white hover:bg-white/20 transition-all">
-                 <FaShoppingBasket className="text-sm" />
-              </button>
-              <button className="flex-1 h-12 bg-primary text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-primary-sm">
-                 Tambah ke Keranjang
-              </button>
-           </div>
-        </div>
+         <div className="fixed bottom-10 left-6 right-6 z-50">
+            <div className="max-w-[400px] mx-auto bg-gray-900 text-white p-4 rounded-4xl shadow-2xl flex items-center gap-3 border border-white/10 ring-1 ring-white/10 backdrop-blur-2xl">
+               <Link href="/toko/cart" className="w-12 h-12 bg-white/10 border border-white/10 rounded-2xl flex items-center justify-center text-white hover:bg-white/20 transition-all">
+                  <FaShoppingBasket className="text-sm" />
+               </Link>
+               <button 
+                 onClick={() => router.push('/toko/cart')}
+                 className="flex-1 h-12 bg-primary text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-primary-sm"
+               >
+                  Tambah ke Keranjang
+               </button>
+            </div>
+         </div>
       </main>
     </>
   );

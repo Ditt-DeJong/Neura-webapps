@@ -1,5 +1,6 @@
 'use client';
 import { FaHistory, FaCommentMedical, FaHospital, FaArrowRight, FaChevronRight } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function AktivitasPage() {
   const activities = [
@@ -22,7 +23,7 @@ export default function AktivitasPage() {
   ];
 
   return (
-    <main className="min-h-screen pb-32 pt-40 bg-gray-50/50">
+    <main className="min-h-screen pb-32 pt-16 bg-gray-50/50">
       <div className="px-6 max-w-[450px] mx-auto">
         <div className="mb-10">
           <span className="text-[10px] text-gray-400 font-black uppercase tracking-[0.4em] mb-3 block">Timeline</span>
@@ -48,32 +49,32 @@ export default function AktivitasPage() {
         {/* Activity List */}
         <div className="space-y-6">
           {activities.map((act, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium group cursor-pointer hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-5 mb-6">
-                <div className={`w-14 h-14 ${act.color} rounded-2xl flex items-center justify-center text-2xl shadow-sm group-hover:scale-105 transition-transform`}>
-                  {act.icon}
-                </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start mb-1">
-                    <span className="text-[9px] font-black text-primary uppercase tracking-[0.2em]">{act.type}</span>
-                    <span className={`text-[8px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full ${
-                      act.status === 'Selesai' ? 'bg-green-50 text-green-500' : 'bg-primary/10 text-primary'
-                    }`}>
-                      {act.status}
-                    </span>
-                  </div>
-                  <h3 className="text-[14px] font-black text-gray-900 tracking-tight">{act.title}</h3>
-                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{act.date}</p>
-                </div>
-              </div>
-              
-              <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
-                <p className="text-[10px] text-gray-400 font-medium">Lihat detail riwayat medis</p>
-                <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-primary group-hover:text-white transition-all">
-                  <FaArrowRight className="text-[10px]" />
-                </div>
-              </div>
-            </div>
+            <Link href={`/aktivitas/activity-${idx}`} key={idx} className="block bg-white p-6 rounded-4xl border border-gray-100 shadow-premium group cursor-pointer hover:-translate-y-1 transition-all duration-300">
+               <div className="flex items-center gap-5 mb-6">
+                 <div className={`w-14 h-14 ${act.color} rounded-2xl flex items-center justify-center text-2xl shadow-sm group-hover:scale-105 transition-transform`}>
+                   {act.icon}
+                 </div>
+                 <div className="flex-1">
+                   <div className="flex justify-between items-start mb-1">
+                     <span className="text-[9px] font-black text-primary uppercase tracking-[0.2em]">{act.type}</span>
+                     <span className={`text-[8px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full ${
+                       act.status === 'Selesai' ? 'bg-green-50 text-green-500' : 'bg-primary/10 text-primary'
+                     }`}>
+                       {act.status}
+                     </span>
+                   </div>
+                   <h3 className="text-[14px] font-black text-gray-900 tracking-tight">{act.title}</h3>
+                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{act.date}</p>
+                 </div>
+               </div>
+               
+               <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
+                 <p className="text-[10px] text-gray-400 font-medium">Lihat detail riwayat medis</p>
+                 <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-primary group-hover:text-white transition-all">
+                   <FaArrowRight className="text-[10px]" />
+                 </div>
+               </div>
+            </Link>
           ))}
         </div>
 

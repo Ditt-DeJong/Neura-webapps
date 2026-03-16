@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import { FaUserNurse, FaBrain, FaSpa, FaVenusMars, FaAppleAlt, FaChevronRight, FaRobot } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function PerawatanKhusus() {
   const treatments = [
@@ -52,40 +53,40 @@ export default function PerawatanKhusus() {
           {/* Treatments Grid */}
           <div className="space-y-6">
              {treatments.map((item, idx) => (
-              <div key={idx} className="group bg-white p-6 rounded-4xl shadow-premium border border-gray-100/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col gap-6">
-                <div className="flex items-center gap-5">
-                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shrink-0 ${item.iconClass} shadow-sm group-hover:scale-105 transition-transform`}>
-                      {item.icon}
-                   </div>
-                   <div className="flex-1">
-                      <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight">{item.title}</h3>
-                      <div className="flex items-center gap-1.5 grayscale opacity-70">
-                         <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none">Specialist Care</span>
-                      </div>
-                   </div>
-                   <div className="text-gray-200">
-                     <FaChevronRight className="text-xs" />
-                   </div>
-                </div>
-                
-                <p className="text-gray-500 text-[12px] leading-relaxed font-medium px-1">
-                  {item.desc}
-                </p>
-                
-                <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
-                   <div className="flex -space-x-2">
-                      {[1, 2, 3].map(i => (
-                        <div key={i} className="w-6 h-6 rounded-full bg-gray-100 border-2 border-white overflow-hidden shadow-sm">
-                           <div className="w-full h-full bg-secondary opacity-50 flex items-center justify-center text-[6px] text-primary font-black uppercase">DR</div>
-                        </div>
-                      ))}
-                      <div className="w-6 h-6 rounded-full bg-secondary border-2 border-white flex items-center justify-center text-[6px] text-primary font-black">+4</div>
-                   </div>
-                   <button className="text-primary font-black text-[10px] uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
-                      Buat Janji <FaUserNurse className="text-sm" />
-                   </button>
-                </div>
-              </div>
+               <Link href={`/perawatan/treatment-${idx}`} key={idx} className="group bg-white p-6 rounded-4xl shadow-premium border border-gray-100/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col gap-6">
+                 <div className="flex items-center gap-5">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shrink-0 ${item.iconClass} shadow-sm group-hover:scale-105 transition-transform`}>
+                       {item.icon}
+                    </div>
+                    <div className="flex-1">
+                       <h3 className="text-[15px] font-black text-gray-900 mb-1 leading-tight">{item.title}</h3>
+                       <div className="flex items-center gap-1.5 grayscale opacity-70">
+                          <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none">Specialist Care</span>
+                       </div>
+                    </div>
+                    <div className="text-gray-200">
+                      <FaChevronRight className="text-xs" />
+                    </div>
+                 </div>
+                 
+                 <p className="text-gray-500 text-[12px] leading-relaxed font-medium px-1">
+                   {item.desc}
+                 </p>
+                 
+                 <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
+                    <div className="flex -space-x-2">
+                       {[1, 2, 3].map(i => (
+                         <div key={i} className="w-6 h-6 rounded-full bg-gray-100 border-2 border-white overflow-hidden shadow-sm">
+                            <div className="w-full h-full bg-secondary opacity-50 flex items-center justify-center text-[6px] text-primary font-black uppercase">DR</div>
+                         </div>
+                       ))}
+                       <div className="w-6 h-6 rounded-full bg-secondary border-2 border-white flex items-center justify-center text-[6px] text-primary font-black">+4</div>
+                    </div>
+                    <div className="text-primary font-black text-[10px] uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
+                       Buat Janji <FaUserNurse className="text-sm" />
+                    </div>
+                 </div>
+               </Link>
             ))}
           </div>
           

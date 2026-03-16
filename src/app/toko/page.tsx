@@ -52,10 +52,10 @@ export default function TokoObat() {
                 </h1>
               </div>
               <div className="flex gap-2">
-                 <button className="w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-gray-400 shadow-sm relative">
+                 <Link href="/toko/cart" className="w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-gray-400 shadow-sm relative active:scale-95 transition-all">
                     <FaShoppingBasket className="text-lg" />
                     <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center border-2 border-white">2</span>
-                 </button>
+                 </Link>
               </div>
             </div>
             
@@ -176,8 +176,8 @@ export default function TokoObat() {
       {/* Static Order Bar Mockup */}
       <div className="fixed bottom-10 left-6 right-6 z-50">
          <div className="max-w-[400px] mx-auto bg-gray-900 text-white p-5 rounded-4xl shadow-2xl flex items-center justify-between border border-white/10 ring-1 ring-white/10">
-            <div className="flex items-center gap-4">
-               <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center text-primary text-xl relative">
+            <Link href="/toko/cart" className="flex items-center gap-4 group">
+               <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center text-primary text-xl relative group-hover:scale-110 transition-transform">
                   <FaShoppingBasket />
                   <span className="absolute -top-1 -right-1 w-5 h-5 bg-white text-gray-900 text-[9px] font-black rounded-full flex items-center justify-center">2</span>
                </div>
@@ -185,10 +185,12 @@ export default function TokoObat() {
                   <p className="text-[10px] text-white/40 font-black uppercase tracking-widest mb-1">Total Pembayaran</p>
                   <p className="text-[16px] font-black leading-none tracking-tight">Rp 37.000</p>
                </div>
-            </div>
-            <button className="bg-primary text-white px-6 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-xl">
-               Checkout
-            </button>
+            </Link>
+            <Link href="/toko/checkout">
+               <button className="bg-primary text-white px-6 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-xl">
+                  Checkout
+               </button>
+            </Link>
          </div>
       </div>
     </>
