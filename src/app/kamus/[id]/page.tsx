@@ -66,7 +66,7 @@ export default function KamusDetail() {
 
            {/* Hero Icon Decoration */}
            <div className="px-6 mb-12">
-              <div className="w-full aspect-video bg-emerald-50 rounded-[3rem] flex items-center justify-center text-8xl text-emerald-500 border border-emerald-100 shadow-inner relative overflow-hidden group">
+              <div className="w-full aspect-video bg-emerald-50 rounded-5xl flex items-center justify-center text-8xl text-emerald-500 border border-emerald-100 shadow-inner relative overflow-hidden group">
                  <div className="absolute inset-0 bg-linear-to-tr from-emerald-500/10 to-transparent"></div>
                  <FaBookMedical className="relative z-10 group-hover:scale-110 transition-transform duration-700" />
                  

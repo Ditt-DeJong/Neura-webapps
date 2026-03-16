@@ -71,14 +71,14 @@ export default function GiziDetail() {
 
            {/* Nutritional Cards */}
            <div className="px-6 mb-12">
-              <div className="bg-gray-950 p-8 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+              <div className="bg-gray-950 p-8 rounded-5xl text-white shadow-2xl relative overflow-hidden group">
                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
                  <div className="flex justify-between items-center mb-10 relative z-10">
                     <div className="flex flex-col">
                        <span className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Total Kalori</span>
                        <h3 className="text-3xl font-black text-white">{meal.cal}</h3>
                     </div>
-                    <div className="w-16 h-16 bg-white/10 rounded-[2rem] flex items-center justify-center text-3xl text-primary border border-white/10 backdrop-blur-xl group-hover:rotate-12 transition-transform">
+                    <div className="w-16 h-16 bg-white/10 rounded-4xl flex items-center justify-center text-3xl text-primary border border-white/10 backdrop-blur-xl group-hover:rotate-12 transition-transform">
                        <FaFire />
                     </div>
                  </div>

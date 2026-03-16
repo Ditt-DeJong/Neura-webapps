@@ -1,5 +1,5 @@
 'use client';
-import { FaChevronLeft, FaPlay, FaPause, FaStepBackward, FaStepForward, FaListUl, FaHeart, FaEllipsisV, FaMoon, FaBrain } from 'react-icons/fa';
+import { FaChevronLeft, FaPlay, FaPause, FaStepBackward, FaStepForward, FaListUl, FaHeart, FaEllipsisV, FaMoon, FaBrain, FaInfoCircle } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';

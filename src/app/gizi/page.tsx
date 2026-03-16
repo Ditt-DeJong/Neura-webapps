@@ -84,7 +84,7 @@ export default function GiziDiet() {
              </div>
              
              {mealPlans.map((item, idx) => (
-               <Link key={idx} href={`/gizi/sarapan-fokus`} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer relative overflow-hidden block">
+               <Link key={idx} href={`/gizi/sarapan-fokus`} className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-3">
                      <FaCheckCircle className="text-gray-100 text-lg group-hover:text-green-500 transition-colors" />
                   </div>

@@ -77,7 +77,7 @@ export default function MentalHealth() {
              </div>
              
              {meditation.map((item, idx) => (
-               <Link key={idx} href={`/mental/audio-${idx}`} className="bg-white p-5 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer hover:shadow-2xl transition-all block">
+               <Link key={idx} href={`/mental/audio-${idx}`} className="bg-white p-5 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer hover:shadow-2xl transition-all">
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-xl shrink-0 ${item.color} group-hover:scale-105 transition-transform`}>
                      {item.icon}
                   </div>
