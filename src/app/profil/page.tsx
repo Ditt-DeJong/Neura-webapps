@@ -1,5 +1,6 @@
 'use client';
 import { FaUserCircle, FaShieldAlt, FaRegQuestionCircle, FaSignOutAlt, FaChevronRight, FaHeart, FaWallet, FaTicketAlt } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function ProfilPage() {
   const menuItems = [
@@ -32,14 +33,14 @@ export default function ProfilPage() {
 
         {/* Quick Stats/Wallet */}
         <div className="grid grid-cols-2 gap-4 mb-12">
-           <div className="bg-gray-900 p-6 rounded-4xl text-white shadow-xl relative overflow-hidden group">
+           <Link href="/profil/wallet" className="bg-gray-900 p-6 rounded-4xl text-white shadow-xl relative overflow-hidden group block cursor-pointer">
               <div className="absolute -right-4 -top-4 w-16 h-16 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-1000"></div>
               <div className="relative z-10">
                  <FaWallet className="text-primary text-xl mb-4" />
                  <p className="text-[8px] text-gray-400 font-black uppercase tracking-widest mb-1">Saldo Neura</p>
                  <p className="text-lg font-black tracking-tight leading-none">Rp 125.000</p>
               </div>
-           </div>
+           </Link>
            <div className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex flex-col justify-between">
               <FaTicketAlt className="text-primary text-xl mb-4" />
               <div>
@@ -53,13 +54,21 @@ export default function ProfilPage() {
         <div className="space-y-3 mb-12">
            <h2 className="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em] mb-6 px-2">Pengaturan Akun</h2>
            {menuItems.map((item, i) => (
-             <div key={i} className="flex items-center gap-5 p-5 bg-white rounded-3xl border border-gray-50 hover:bg-gray-50 hover:scale-[1.02] transition-all cursor-pointer group">
+             <Link 
+              key={i} 
+              href={
+                item.label === "Keamanan Akun" ? "/profil/keamanan" : 
+                item.label === "Pusat Bantuan" ? "/profil/bantuan" : 
+                item.label === "Favorit Saya" ? "/profil/favorit" : "#"
+              }
+              className="flex items-center gap-5 p-5 bg-white rounded-3xl border border-gray-50 hover:bg-gray-50 hover:scale-[1.02] transition-all cursor-pointer group"
+             >
                 <div className={`w-12 h-12 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center text-lg shadow-sm group-hover:scale-110 transition-transform`}>
                    {item.icon}
                 </div>
                 <span className="flex-1 text-[13px] font-black text-gray-800 tracking-tight">{item.label}</span>
                 <FaChevronRight className="text-gray-200 text-[10px]" />
-             </div>
+             </Link>
            ))}
         </div>
 

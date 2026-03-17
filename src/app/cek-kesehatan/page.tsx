@@ -9,6 +9,7 @@ export default function CekKesehatan() {
 
   const tests = [
     {
+       slug: "dass-21",
        title: "Skrining Mental DASS-21",
        desc: "Ukur tingkat Depresi, Kecemasan, dan Stres secara medis.",
        users: "12,500+",
@@ -16,6 +17,7 @@ export default function CekKesehatan() {
        color: "bg-purple-50 text-purple-500",
     },
     {
+        slug: "bmi",
         title: "Kalkulator Indeks BMI",
         desc: "Ketahui berat badan idealmu dan cegah risiko obesitas dini.",
         users: "8,200+",
@@ -23,6 +25,7 @@ export default function CekKesehatan() {
         color: "bg-blue-50 text-blue-500",
      },
      {
+        slug: "siklus-haid",
         title: "Pemantau Siklus Haid",
         desc: "Catat riwayat menstruasimu untuk memprediksi periode berikutnya.",
         users: "5,300+",
@@ -30,6 +33,7 @@ export default function CekKesehatan() {
         color: "bg-rose-50 text-primary",
      },
      {
+        slug: "kebugaran",
         title: "Tes Risiko Kebugaran",
         desc: "Apakah kamu terlalu banyak duduk saat mengerjakan tugas?",
         users: "3,100+",
@@ -118,7 +122,7 @@ export default function CekKesehatan() {
              
              {filteredTests.length > 0 ? (
                 filteredTests.map((test, idx) => (
-                  <Link key={idx} href={`/cek-kesehatan/dass-21`} className="bg-white p-6 rounded-5xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer block">
+                  <Link key={idx} href={`/cek-kesehatan/${test.slug}`} className="bg-white p-6 rounded-5xl border border-gray-100 shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer block">
                      <div className="flex items-center gap-6 mb-6">
                         <div className={`w-16 h-16 rounded-3xl flex items-center justify-center text-3xl shrink-0 ${test.color} shadow-sm group-hover:scale-105 transition-transform`}>
                            {test.icon}

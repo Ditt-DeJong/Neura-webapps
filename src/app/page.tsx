@@ -107,8 +107,8 @@ export default function Home() {
             <div className="space-y-5">
                {[
                  { icon: <FaBookMedical />, title: 'Kamus Kesehatan', color: 'bg-rose-50 text-rose-500', desc: 'Gejala, obat & pencegahan', href: '/kamus' },
-                 { icon: <FaWeight />, title: 'Kalkulator BMI', color: 'bg-blue-50 text-blue-500', desc: 'Cek berat badan ideal', href: '/cek-kesehatan' },
-                 { icon: <FaHeadSideVirus />, title: 'Tes Stres', color: 'bg-indigo-50 text-indigo-500', desc: 'Penilaian standar medis', href: '/cek-kesehatan' }
+                 { icon: <FaWeight />, title: 'Kalkulator BMI', color: 'bg-blue-50 text-blue-500', desc: 'Cek berat badan ideal', href: '/cek-kesehatan/bmi' },
+                 { icon: <FaHeadSideVirus />, title: 'Tes Stres', color: 'bg-indigo-50 text-indigo-500', desc: 'Penilaian standar medis', href: '/cek-kesehatan/dass-21' }
                ].map((tool, i) => (
                  <Link href={tool.href} key={i} className="flex items-center gap-5 p-5 bg-white rounded-4xl border border-gray-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
                     <div className={`w-16 h-16 ${tool.color} rounded-2xl flex items-center justify-center text-3xl shadow-sm group-hover:scale-110 transition-transform`}>

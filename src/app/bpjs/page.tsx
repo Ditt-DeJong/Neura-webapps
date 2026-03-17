@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import { FaShieldAlt, FaIdCard, FaHistory, FaCheckCircle, FaHospitalSymbol, FaChevronRight } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function LayananBPJS() {
   return (
@@ -76,7 +77,7 @@ export default function LayananBPJS() {
           <div className="space-y-5">
              <h2 className="text-[12px] font-black text-gray-900 uppercase tracking-widest px-2 mb-6">Informasi Layanan</h2>
              
-             <div className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer">
+             <Link href="/bpjs/faskes" className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex items-center gap-5 group cursor-pointer">
                 <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-2xl text-primary shrink-0 group-hover:scale-105 transition-transform">
                    <FaHospitalSymbol />
                 </div>
@@ -85,7 +86,7 @@ export default function LayananBPJS() {
                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Klinik Satelit UI</p>
                 </div>
                 <FaChevronRight className="text-xs text-gray-200" />
-             </div>
+             </Link>
 
              <div className="bg-white p-6 rounded-4xl border border-gray-100 shadow-premium flex flex-col gap-6 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
