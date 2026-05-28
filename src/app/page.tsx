@@ -6,7 +6,8 @@ import {
   FaCommentMedical, FaPills, FaHospital, FaSyringe, FaShieldAlt, 
   FaBrain, FaRunning, FaStar, FaBookMedical, FaWeight,
   FaHeadSideVirus, FaStethoscope, 
-  FaPlus, FaApple, FaGooglePlay, FaArrowRight, FaChevronRight, FaRobot 
+  FaPlus, FaApple, FaGooglePlay, FaArrowRight, FaChevronRight, FaRobot,
+  FaSyncAlt
 } from 'react-icons/fa';
 
 export default function Home() {
@@ -242,11 +243,20 @@ export default function Home() {
               </div>
            </div>
 
-           <div className="mt-6 pt-8 border-t border-gray-100/50 text-center">
-              <p className="text-[9px] text-gray-300 font-black uppercase tracking-[0.4em] leading-relaxed">
-                &copy; 2026 Neura Indonesia. <br/>Part of Education Health Companion.
-              </p>
-           </div>
+            <div className="mt-6 pt-8 border-t border-gray-100/50 text-center flex flex-col items-center gap-3">
+               <button 
+                 onClick={() => {
+                   sessionStorage.removeItem('neura_loaded');
+                   window.location.reload();
+                 }}
+                 className="flex items-center gap-1.5 text-[9px] font-bold text-primary/60 hover:text-primary uppercase tracking-widest cursor-pointer transition-colors active:scale-95 py-1 px-3 bg-secondary/50 rounded-full"
+               >
+                 Putar Ulang Intro <FaSyncAlt className="text-[8px] animate-spin" style={{ animationDuration: '3s' }} />
+               </button>
+               <p className="text-[9px] text-gray-300 font-black uppercase tracking-[0.4em] leading-relaxed">
+                 &copy; 2026 Neura Indonesia. <br/>Part of Education Health Companion.
+               </p>
+            </div>
         </div>
       </footer>
     </>

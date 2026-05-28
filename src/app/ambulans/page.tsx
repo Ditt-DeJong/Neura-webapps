@@ -140,7 +140,7 @@ export default function AmbulanceService() {
                  Harap tetap tenang. GPS Anda sedang diteruskan ke RS Universitas Indonesia dan armada Ambulans terdekat.
               </p>
               <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden mb-12 max-w-[200px]">
-                 <div className="h-full bg-red-500 rounded-full animate-[progress_3s_ease-in-out_infinite]"></div>
+                 <div className="h-full bg-red-500 rounded-full animate-loading-bar"></div>
               </div>
               <button 
                 onClick={() => setIsSearching(false)}
@@ -151,13 +151,6 @@ export default function AmbulanceService() {
            </div>
         )}
       </main>
-      
-      <style jsx>{`
-        @keyframes progress {
-          0% { width: 0%; }
-          100% { width: 100%; }
-        }
-      `}</style>
     </>
   );
 }
