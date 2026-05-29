@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlus, FaBolt, FaLock, FaStethoscope, FaRunning, FaBrain, FaStar, FaRocket } from 'react-icons/fa';
+import { FaBolt, FaLock, FaStethoscope, FaRunning, FaBrain, FaStar, FaRocket } from 'react-icons/fa';
 
 interface Particle {
   x: number;
@@ -324,7 +324,7 @@ export default function LoadingScreen() {
               }}
               className="w-24 h-24 bg-primary text-white rounded-[2rem] flex items-center justify-center text-4xl border border-white/10 relative shadow-premium cursor-pointer"
             >
-              <FaPlus className="text-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]" />
+              <span className="font-outfit font-black text-5xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)] select-none leading-none">N</span>
               
               {/* Ripple Ring effects from Logo */}
               <motion.div

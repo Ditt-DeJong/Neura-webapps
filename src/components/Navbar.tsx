@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { FaPlus, FaBell } from 'react-icons/fa';
+import { FaBell } from 'react-icons/fa';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +24,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="bg-primary text-white rounded-xl w-10 h-10 flex items-center justify-center shadow-primary-sm group-hover:scale-105 transition-transform duration-300">
-            <FaPlus className="text-sm" />
+            <span className="font-outfit font-black text-xl select-none leading-none">N</span>
           </div>
           <span className="text-xl font-black tracking-tighter text-primary">
             Neura

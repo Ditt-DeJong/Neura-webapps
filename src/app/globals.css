@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -16,6 +16,7 @@
   
   --font-inter: "Inter", sans-serif;
   --font-poppins: "Poppins", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
   
   --radius-3xl: 1.5rem;
   --radius-4xl: 2rem;

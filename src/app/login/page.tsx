@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { FaPlus, FaPhoneAlt, FaChevronLeft, FaUserGraduate, FaUserMd, FaArrowRight } from 'react-icons/fa';
+import { FaPhoneAlt, FaChevronLeft, FaUserGraduate, FaUserMd, FaArrowRight } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type Step = 'role' | 'phone' | 'otp';
@@ -49,8 +49,8 @@ export default function Login() {
         <div className="px-8 pt-16 pb-8">
           <div className="flex justify-between items-center mb-12">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="bg-primary text-white p-2 rounded-xl shadow-primary-sm group-hover:rotate-12 transition-transform">
-                <FaPlus className="text-sm" />
+              <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-xl shadow-primary-sm group-hover:rotate-12 transition-transform">
+                <span className="font-outfit font-black text-xl select-none leading-none">N</span>
               </div>
               <span className="text-xl font-black text-gray-900 tracking-tighter">Neura</span>
             </Link>

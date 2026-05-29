@@ -6,7 +6,7 @@ import {
   FaCommentMedical, FaPills, FaHospital, FaSyringe, FaShieldAlt, 
   FaBrain, FaRunning, FaStar, FaBookMedical, FaWeight,
   FaHeadSideVirus, FaStethoscope, 
-  FaPlus, FaApple, FaGooglePlay, FaArrowRight, FaChevronRight, FaRobot,
+  FaApple, FaGooglePlay, FaArrowRight, FaChevronRight, FaRobot,
   FaSyncAlt
 } from 'react-icons/fa';
 
@@ -195,7 +195,7 @@ export default function Home() {
               <div className="flex flex-col gap-8">
                 <div className="flex items-center gap-3">
                   <div className="bg-primary text-white rounded-xl w-10 h-10 flex items-center justify-center text-lg shadow-primary-sm">
-                    <FaPlus />
+                    <span className="font-outfit font-black text-xl select-none leading-none">N</span>
                   </div>
                   <h2 className="text-2xl font-black text-gray-900 tracking-tighter">Neura</h2>
                 </div>
