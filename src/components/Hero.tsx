@@ -12,10 +12,6 @@ export default function Hero() {
         <div className="relative">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-premium border border-primary/5 mb-8">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
             <span className="text-[10px] font-black uppercase tracking-widest text-primary/80">
               #1 Student Health Partner
             </span>

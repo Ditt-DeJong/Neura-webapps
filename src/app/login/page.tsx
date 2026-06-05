@@ -38,12 +38,8 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-white md:bg-gray-50 flex items-center justify-center relative overflow-hidden font-sans">
-      {/* Aesthetic Background for Desktop */}
-      <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
-      <div className="hidden md:block absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
-
-      <main className="w-full max-w-[450px] min-h-screen md:min-h-0 md:h-[800px] bg-white md:rounded-[48px] md:shadow-2xl overflow-hidden flex flex-col relative border border-gray-100/50">
+    <div className="min-h-screen bg-white flex flex-col relative overflow-hidden font-sans">
+      <main className="w-full flex-1 flex flex-col relative">
         
         {/* Header Section */}
         <div className="px-8 pt-16 pb-8">

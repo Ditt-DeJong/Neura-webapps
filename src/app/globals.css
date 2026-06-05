@@ -62,7 +62,7 @@ html, body {
   overflow-x: hidden;
 }
 
-@media (min-width: 451px) {
+@media (min-width: 768px) {
   body { 
     background-color: #F8F1F3; 
     background-image: 
